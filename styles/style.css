@@ -28,6 +28,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    background-image: url(../assets/eduwork.jpg);
 }
 
 section {
@@ -128,4 +129,38 @@ footer {
 
 .auth-container button {
     margin: 10px;
+}
+
+.workshops {
+    border: solid 1px grey;
+    width: 100%;
+    margin: 40px;
+    padding: 10px;
+    background-color: grey;
+}
+
+.participant {
+    cursor: pointer;
+    transition: .2s all ease-in-out;
+    color: white;
+    border: solid 0.5px black;
+}
+
+.person {
+    border: solid 1px;
+}
+
+a {
+    background-color: white;
+    border: solid 1px black;
+    color: black;
+    
+}
+
+h1 {
+    background-color: grey;
+}
+
+label {
+    background-color: white;
 }
