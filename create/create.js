@@ -35,7 +35,7 @@ window.addEventListener('load', async() => {
 
         option.value = workshop.id;
         option.textContent = workshop.name;
-        option.textContent = workshop.contact;
+        // option.textContent = workshop.contact;
 
         selectEl.append(option);
     }

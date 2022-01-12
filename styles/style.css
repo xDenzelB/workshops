@@ -28,6 +28,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    background-image: url(../assets/eduwork.jpg);
 }
 
 section {
@@ -147,4 +148,19 @@ footer {
 
 .person {
     border: solid 1px;
+}
+
+a {
+    background-color: white;
+    border: solid 1px black;
+    color: black;
+    
+}
+
+h1 {
+    background-color: grey;
+}
+
+label {
+    background-color: white;
 }
