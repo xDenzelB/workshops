@@ -1,8 +1,9 @@
-import { checkAuth, getWorkshops, logout } from '../fetch-utils.js';
+import { checkAuth, deleteParticipant, getWorkshops, logout } from '../fetch-utils.js';
+import { renderParticipant } from '../render-utils.js';
 
 checkAuth();
 
-const participantEl = document.querySelector('.participant-list');
+const participantEl = document.querySelector('.workshop-list');
 
 const logoutButton = document.getElementById('logout');
 
@@ -13,7 +14,7 @@ logoutButton.addEventListener('click', () => {
 function displayWorkshops(workshop) {
     participantEl.textContent = '';
 
-    for (let person of workshop) {
+    for (let workshops of workshop) {
         const personEl = document.createElement('div');
         const nameEl = document.createElement('h2');
         const workshopEl = document.createElement('div');
@@ -21,7 +22,22 @@ function displayWorkshops(workshop) {
         workshopEl.classList.add('workshops');
         personEl.classList.add('participant');
 
-        nameEl.textContent = person.name;
+        nameEl.textContent = workshops.name;
+
+        for (let participant of workshops.participants) {
+            const peopleEl = renderParticipant(participant);
+
+            peopleEl.addEventListener('click', async() => {
+                await deleteParticipant(participant.id);
+
+                const updateParticipant = await getWorkshops();
+
+                displayWorkshops(updateParticipant);
+            });
+            personEl.append(peopleEl);
+        }
+        workshopEl.append(nameEl, personEl);
+        participantEl.append(workshopEl);
     }
 }
 
